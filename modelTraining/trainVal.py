@@ -53,7 +53,7 @@ for epoch in range(epochs):
         mask = Unet(x)
         outputs = denoise_net(x)
 
-        loss_mse = loss_l2(outputs, y)  # 计算全局loss
+        loss_mse = loss_l2(outputs, y)  # 降噪损失
 
         outputs = mask.ge(0.5) * outputs + mask.le(0.5) * x
 
